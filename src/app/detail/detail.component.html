@@ -1,0 +1,20 @@
+<h1>POST DETAIL</h1>
+<div *ngIf="!selectedPost" class="alert alert-warning" role="alert">
+  There is no post selected!
+</div>
+<ng-container *ngIf="selectedPost">
+  <div class="form-group">
+    <label for="titleTextArea">Title:</label>
+    <textarea class="form-control" id="titleTextArea" rows="3">{{selectedPost.title}}</textarea>
+  </div>
+
+  <div class="form-group">
+    <label for="titleTextArea">Description:</label>
+    <textarea class="form-control" id="titleTextArea" rows="3">{{selectedPost.body}}</textarea>
+  </div>
+
+  <div *ngIf="selectedPost.comments">
+    <app-comment *ngFor="let comment of selectedPost.comments" [comment]="comment"></app-comment>
+  </div>
+
+</ng-container>

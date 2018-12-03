@@ -1,0 +1,13 @@
+<div class="row">
+  <div class="col-4">
+    <h3>Posts</h3>
+    <div class="list-group">
+      <ng-container *ngIf="postList$ | async as postList">
+        <app-item *ngFor="let item of postList" [post]="item" (selectedPost)="getSelectedPost($event)"></app-item>
+      </ng-container>
+    </div>
+  </div>
+  <div class="col-8">
+    <app-detail [selectedPost]="selectedPost"></app-detail>
+  </div>
+</div>
